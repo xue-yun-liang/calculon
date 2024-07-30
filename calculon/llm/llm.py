@@ -38,6 +38,7 @@ class Llm:
       self.attn_heads = cfg['attn_heads']
       self.attn_size = cfg['attn_size']
       self.num_blocks = cfg['num_blocks']
+      self.vocab_size = cfg['vocab_size']
 
     def num_parameters(self):
       # https://cs.stanford.edu/~matei/papers/2021/sc_megatron_lm.pdf
@@ -48,7 +49,7 @@ class Llm:
       p += 3 * self.attn_heads * self.attn_size + self.hidden  # biases Attn
       p += 2 * 2 * self.hidden                                 # layer norm
       p *= self.num_blocks                                     # per each block
-      p += (51200 + self.seq_size) * self.hidden               # embeddings
+      p += (self.vocab_size + self.seq_size) * self.hidden               # embeddings
       return p
 
   class Execution:

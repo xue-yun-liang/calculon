@@ -56,6 +56,8 @@ class Validation(calculon.CommandLine):
   def seqsel_fig1(logger, args):
     kModels = ['megatron-22B', 'gpt3-175B', 'turing-530B', 'megatron-1T']
     kModes = ['none', 'seqsel']
+    # TODO:if sep_par is True, add new model need profileing in the megatron.
+
     # These profiled values are reported here:
     # https://arxiv.org/pdf/2205.05198.pdf
     # Figure 1

@@ -23,6 +23,8 @@ class System:
   """Configuration for a system."""
 
   TypeSizes = {
+    'int4'     : 0.5,
+    'int8'     : 1,
     'float8'   : 1,
     'float16'  : 2,
     'float32'  : 4,
